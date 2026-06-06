@@ -123,10 +123,19 @@
     }
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+button {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+}
+
+input, textarea, select {
+    font-size: 16px;
+}
+
+/* Remove default focus on touch */
+button:focus {
+    outline: none;
 }
 
 body {
@@ -135,6 +144,9 @@ body {
     background-color: var(--white);
     overflow-x: hidden;
     line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
 }
 
 h1,
@@ -233,6 +245,10 @@ h3,
     letter-spacing: 1px;
     position: relative;
     overflow: hidden;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn-premium::before {
@@ -818,29 +834,92 @@ h3,
 }
 
 /* MOBILE RESPONSIVENESS */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .hero-title {
-        font-size: 2.8rem;
+        font-size: 3.5rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .btn-surprise {
+        padding: 15px 40px;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* GENERAL */
+    .container {
+        padding: 0 15px;
+    }
+
+    .section-padding {
+        padding: 50px 0;
+    }
+
+    /* HERO */
+    .hero {
+        height: 85vh;
+        padding: 20px 0;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+        margin-bottom: 15px;
     }
 
     .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    /* BUTTONS */
+    .btn-premium {
+        padding: 12px 28px;
+        font-size: 0.95rem;
+        width: auto;
+        min-width: 150px;
+    }
+
+    .btn-surprise {
+        padding: 16px 35px;
         font-size: 1.1rem;
     }
 
-    .time-unit span {
-        font-size: 1.8rem;
+    /* COUNTDOWN */
+    .card {
+        padding: 30px 20px;
     }
 
-    .time-unit {
-        min-width: 60px;
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 25px;
     }
 
     .countdown-grid {
-        gap: 10px;
+        gap: 8px;
     }
 
+    .time-unit {
+        min-width: 55px;
+    }
+
+    .time-unit span {
+        font-size: 1.5rem;
+    }
+
+    .time-unit small {
+        font-size: 0.7rem;
+    }
+
+    .card-footer {
+        font-size: 0.9rem;
+    }
+
+    /* TIMELINE */
     .timeline::before {
-        left: 20px;
+        left: 15px;
     }
 
     .timeline-item {
@@ -848,43 +927,334 @@ h3,
         padding-left: 50px;
         padding-right: 0;
         justify-content: flex-start;
+        margin-bottom: 40px;
     }
 
     .timeline-item:nth-child(even) {
         padding-left: 50px;
     }
 
-    .icon-box {
-        left: -30px !important;
-        right: auto !important;
-        width: 30px;
-        height: 30px;
-    }
-
-    .fade-in-text {
-        font-size: 1.8rem;
-    }
-
-    .surprise-message-box {
+    .timeline-content {
         padding: 20px;
-        max-height: 90vh;
+        width: 100%;
+    }
+
+    .icon-box {
+        left: -28px !important;
+        right: auto !important;
+        width: 35px;
+        height: 35px;
+        font-size: 0.8rem;
+    }
+
+    .timeline-content h3 {
+        font-size: 1.1rem;
+    }
+
+    .timeline-content p {
+        font-size: 0.9rem;
+    }
+
+    /* FLIP CARDS */
+    .reasons-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 12px;
+    }
+
+    .flip-card {
+        height: 200px;
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+        padding: 15px;
+        border-radius: 12px;
+    }
+
+    .flip-card-front {
+        font-size: 1.1rem;
+    }
+
+    .flip-card-back {
+        font-size: 0.95rem;
+    }
+
+    /* LOAD MORE BUTTON */
+    #load-more-reasons {
+        margin-top: 30px;
+        padding: 12px 30px;
+        font-size: 0.95rem;
+    }
+
+    /* INTRO */
+    .fade-in-text {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    /* SURPRISE */
+    .surprise-message-box {
+        padding: 20px 15px;
+        max-height: 80vh;
+        max-width: 95%;
+        border-radius: 15px;
     }
 
     #surprise-text {
-        font-size: 1.1rem;
-        line-height: 1.6;
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 20px;
     }
 
+    #surprise-canvas {
+        display: none;
+    }
+
+    .surprise-controls {
+        margin-bottom: 15px;
+    }
+
+    .btn-skip {
+        padding: 10px 20px;
+        font-size: 0.75rem;
+    }
+
+    /* HIDDEN TRIGGERS */
+    .hidden-trigger {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+    }
+
+    /* MUSIC TOGGLE */
     .music-toggle {
-        width: 50px;
-        height: 50px;
+        width: 55px;
+        height: 55px;
         font-size: 1.5rem;
         bottom: 20px;
         right: 20px;
     }
 
+    .music-toggle:hover {
+        transform: scale(1.08) rotateZ(8deg);
+    }
+
+    /* FOOTER */
+    .footer {
+        padding: 60px 0 30px;
+    }
+
+    .beating-heart {
+        font-size: 2rem;
+    }
+
+    .final-phrase {
+        font-size: 1.3rem;
+    }
+
+    .start-date {
+        font-size: 0.85rem;
+    }
+
+    /* ANIMATIONS */
+    .animate-up,
+    .animate-left,
+    .animate-right {
+        opacity: 0;
+        animation: none;
+    }
+
+    .animate-up.show,
+    .animate-left.show,
+    .animate-right.show {
+        animation: slideInUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+}
+
+@media (max-width: 480px) {
+    /* EXTRA SMALL SCREENS */
+    .container {
+        padding: 0 12px;
+    }
+
+    .section-padding {
+        padding: 35px 0;
+    }
+
+    .hero {
+        height: 80vh;
+    }
+
+    .hero-title {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .section-title {
+        font-size: 1.4rem;
+        margin-bottom: 20px;
+    }
+
+    .btn-premium {
+        padding: 10px 24px;
+        font-size: 0.85rem;
+        min-width: 130px;
+    }
+
+    .btn-surprise {
+        padding: 14px 28px;
+        font-size: 1rem;
+    }
+
+    /* COUNTDOWN */
+    .card {
+        padding: 20px 15px;
+    }
+
+    .countdown-grid {
+        gap: 5px;
+    }
+
+    .time-unit {
+        min-width: 45px;
+    }
+
+    .time-unit span {
+        font-size: 1.2rem;
+    }
+
+    .time-unit small {
+        font-size: 0.65rem;
+    }
+
+    /* FLIP CARDS */
+    .reasons-grid {
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 10px;
+    }
+
+    .flip-card {
+        height: 180px;
+    }
+
+    .flip-card-front {
+        font-size: 0.95rem;
+    }
+
+    .flip-card-back {
+        font-size: 0.85rem;
+    }
+
+    /* TIMELINE */
+    .timeline-item {
+        padding-left: 40px;
+    }
+
+    .timeline::before {
+        left: 10px;
+    }
+
+    .icon-box {
+        left: -23px !important;
+        width: 30px;
+        height: 30px;
+        font-size: 0.7rem;
+    }
+
+    .timeline-content {
+        padding: 15px;
+    }
+
+    .timeline-content h3 {
+        font-size: 1rem;
+    }
+
+    .timeline-content p {
+        font-size: 0.85rem;
+    }
+
+    /* SURPRISE */
+    .surprise-message-box {
+        padding: 15px 12px;
+        max-height: 75vh;
+    }
+
+    #surprise-text {
+        font-size: 0.9rem;
+        line-height: 1.4;
+        margin-bottom: 15px;
+    }
+
     .btn-skip {
-        padding: 8px 20px;
-        font-size: 0.8rem;
+        padding: 8px 16px;
+        font-size: 0.7rem;
+    }
+
+    #close-surprise {
+        padding: 10px 24px;
+        font-size: 0.85rem;
+    }
+
+    /* HIDDEN TRIGGERS */
+    .hidden-trigger {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
+    /* MUSIC */
+    .music-toggle {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .music-toggle:hover {
+        transform: scale(1.05) rotateZ(5deg);
+    }
+
+    /* INTRO */
+    .fade-in-text {
+        font-size: 1.3rem;
+    }
+
+    .footer {
+        padding: 45px 0 25px;
+    }
+
+    .beating-heart {
+        font-size: 1.8rem;
+    }
+
+    .final-phrase {
+        font-size: 1.1rem;
+    }
+
+    .footer-bottom {
+        font-size: 0.75rem;
+    }
+
+    /* GENERAL IMPROVEMENTS */
+    body {
+        overflow-x: hidden;
+    }
+
+    *::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    *::-webkit-scrollbar-track {
+        background: rgba(255, 183, 197, 0.1);
+    }
+
+    *::-webkit-scrollbar-thumb {
+        background: var(--primary);
+        border-radius: 3px;
     }
 }
