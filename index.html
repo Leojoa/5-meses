@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 Meses Juntos ❤️</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:wght@100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <!-- SECTION 1: INTRO CINEMATOGRÁFICA -->
+    <div id="intro-overlay" class="intro-overlay">
+        <div class="particles" id="particles"></div>
+        <div class="intro-content">
+            <h1 class="fade-in-text">Cada historia tiene un comienzo... <br>y esta es nuestra historia ❤️</h1>
+            <button id="start-btn" class="btn-premium">💗 Comenzar 💗</button>
+        </div>
+    </div>
+
+    <main id="main-content" class="hidden">
+        <!-- SECTION 2: HERO PRINCIPAL -->
+        <header class="hero">
+            <div class="floating-hearts" id="hero-hearts"></div>
+            <div class="container animate-up">
+                <h1 class="hero-title">Felices 5 Meses, Mi Niña Hermosha 💖</h1>
+                <p class="hero-subtitle">Cada día a tu lado es especial...</p>
+            </div>
+        </header>
+
+        <!-- SECTION 3: CONTADOR DE TIEMPO JUNTOS -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="card countdown-card animate-up">
+                    <h2 class="section-title">Nuestro Tiempo Juntos</h2>
+                    <div id="countdown" class="countdown-grid">
+                        <div class="time-unit"><span id="months">00</span><small>Meses</small></div>
+                        <div class="time-unit"><span id="days">00</span><small>Días</small></div>
+                        <div class="time-unit"><span id="hours">00</span><small>Horas</small></div>
+                        <div class="time-unit"><span id="minutes">00</span><small>Minutos</small></div>
+                        <div class="time-unit"><span id="seconds">00</span><small>Segundos</small></div>
+                    </div>
+                    <p class="card-footer">"Cada segundo contigo ha sido unico y especial."</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: NUESTRA HISTORIA -->
+        <section class="section-padding bg-soft">
+            <div class="container">
+                <h2 class="section-title">Nuestra Historia</h2>
+                <div class="timeline">
+                    <div class="timeline-item animate-left" data-icon="star">
+                        <div class="timeline-content">
+                            <span class="icon-box"><i data-lucide="star"></i></span>
+                            <h3>Nos Conocimos</h3>
+                            <p>Un 22 de Diciembre a las 1:56, se me ocurrio escribirle a una cochina 💗</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item animate-right" data-icon="message-circle">
+                        <div class="timeline-content">
+                            <span class="icon-box"><i data-lucide="message-circle"></i></span>
+                            <h3>Primeras Charlas</h3>
+                            <p>Desde ese dia, no paramos de hablar y hoy te volviste muy especial para mi 💕</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item animate-left" data-icon="coffee">
+                        <div class="timeline-content">
+                            <span class="icon-box"><i data-lucide="coffee"></i></span>
+                            <h3>Primera Vista</h3>
+                            <p>Un 30 de Diciembre, nos vimos por "primera" vez, y me enamore mas de ti 💝</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item animate-right" data-icon="gift">
+                        <div class="timeline-content">
+                            <span class="icon-box"><i data-lucide="gift"></i></span>
+                            <h3>Primer Regalo</h3>
+                            <p>Un scrapbook pequeñito con mucho amor 💞</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item animate-left" data-icon="heart">
+                        <div class="timeline-content">
+                            <span class="icon-box"><i data-lucide="heart"></i></span>
+                            <h3>5 Meses Juntos</h3>
+                            <p>Hoy celebramos este hermoso camino que esta en proceso 💓</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- SECTION 7: RAZONES POR LAS QUE TE QUIERO -->
+        <section class="section-padding">
+            <div class="container">
+                <h2 class="section-title">Razones por las que te quiero</h2>
+                <div id="reasons-container" class="reasons-grid">
+                    <!-- Razones dinámicas aquí -->
+                </div>
+                <div class="text-center mt-40">
+                    <button id="load-more-reasons" class="btn-premium">Ver más motivos ✨</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 8: MENSAJES OCULTOS -->
+        <div id="hidden-messages-layer">
+            <!-- Corazones/estrellas dinámicos -->
+        </div>
+
+        <!-- SECTION 10: GRAN SORPRESA FINAL -->
+        <section class="section-padding surprise-section">
+            <div class="container text-center">
+                <button id="surprise-btn" class="btn-surprise">Abrir Sorpresa ❤️</button>
+            </div>
+        </section>
+
+        <!-- SECTION 11: DESPEDIDA -->
+        <footer class="footer">
+            <div class="container">
+                <div class="beating-heart"><i data-lucide="heart"></i></div>
+                <p class="final-phrase">"5 meses contigo, infinitos recuerdos por crear ❤️"</p>
+                <p class="start-date">Desde: <span id="relationship-start">01 / 01 / 2026</span></p>
+                <div class="footer-bottom">💖 For: Lian Valeria Joyo Huaman 💖</div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Overlay de Sorpresa -->
+    <div id="surprise-overlay" class="surprise-overlay hidden">
+        <canvas id="surprise-canvas"></canvas>
+        <div class="surprise-message-box">
+            <div class="surprise-controls">
+                <button id="skip-animation" class="btn-skip" style="display: none;">⏭️ Saltar Animación</button>
+            </div>
+            <p id="surprise-text"></p>
+            <button id="close-surprise" class="btn-premium">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox hidden" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="Zoom">
+        <p id="lightbox-caption"></p>
+    </div>
+
+    <!-- Background Music -->
+    <audio id="background-music" loop>
+        <source src="musica.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Music Control Button -->
+    <button id="music-toggle" class="music-toggle" title="Pausar/Reproducir música">🎵</button>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
