@@ -159,18 +159,25 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateCountdown() {
         const now = new Date();
         let months = (now.getFullYear() - startDate.getFullYear()) * 12 + (now.getMonth() - startDate.getMonth());
-        if (now.getDate() < startDate.getDate()) months--;
-
+        
         const tempDate = new Date(startDate);
         tempDate.setMonth(tempDate.getMonth() + months);
-        const timeDiff = now - tempDate;
+        
+        let timeDiff = now - tempDate;
+        
+        // Si el tiempo es negativo (aún no hemos llegado al aniversario este mes), restar un mes
+        if (timeDiff < 0) {
+            months = Math.max(0, months - 1);
+            tempDate.setMonth(tempDate.getMonth() - 1);
+            timeDiff = now - tempDate;
+        }
 
-        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+        const days = Math.max(0, Math.floor(timeDiff / (1000 * 60 * 60 * 24)));
+        const hours = Math.max(0, Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+        const minutes = Math.max(0, Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60)));
+        const seconds = Math.max(0, Math.floor((timeDiff % (1000 * 60)) / 1000));
 
-        document.getElementById('months').innerText = months.toString().padStart(2, '0');
+        document.getElementById('months').innerText = Math.max(0, months).toString().padStart(2, '0');
         document.getElementById('days').innerText = days.toString().padStart(2, '0');
         document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
         document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
