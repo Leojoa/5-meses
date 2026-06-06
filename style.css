@@ -413,14 +413,13 @@ h3,
     position: relative;
     width: 100%;
     display: flex;
-    justify-content: flex-end;
-    padding-right: 50%;
+    justify-content: center;
+    padding: 0 20px;
 }
 
 .timeline-item:nth-child(even) {
-    justify-content: flex-start;
-    padding-right: 0;
-    padding-left: 50%;
+    justify-content: center;
+    padding: 0 20px;
 }
 
 .timeline-content {
@@ -429,7 +428,7 @@ h3,
     padding: 30px;
     border-radius: 20px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    width: 90%;
+    width: 50%;
     position: relative;
     border: 1px solid rgba(255, 255, 255, 0.5);
     transition: var(--transition);
@@ -458,15 +457,15 @@ h3,
 }
 
 .timeline-item:nth-child(even) .icon-box {
-    right: auto;
-    left: -60px;
+    right: -60px;
+    left: auto;
 }
 
 /* SECTION 7: FLIP CARDS */
 .reasons-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px 30px;
 }
 
 .flip-card {
@@ -475,11 +474,13 @@ h3,
     height: 250px;
     perspective: 1000px;
     cursor: pointer;
-    transition: var(--smooth);
+    transition: none;
+    margin: 0;
+    padding: 0;
 }
 
 .flip-card:hover {
-    transform: translateY(-5px) scale(1.02);
+    transform: none;
 }
 
 .flip-card-inner {
@@ -507,7 +508,7 @@ h3,
     padding: 20px;
     border-radius: 15px;
     box-shadow: var(--shadow);
-    transition: var(--smooth);
+    transition: box-shadow 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
 .flip-card-front {
@@ -847,6 +848,16 @@ h3,
         padding: 15px 40px;
         font-size: 1.2rem;
     }
+
+    /* REASONS GRID - TABLET */
+    .reasons-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px 30px;
+    }
+
+    .flip-card {
+        height: 220px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -919,46 +930,57 @@ h3,
 
     /* TIMELINE */
     .timeline::before {
-        left: 15px;
+        left: 20px;
     }
 
     .timeline-item {
         width: 100%;
+        padding: 0 15px;
         padding-left: 50px;
-        padding-right: 0;
         justify-content: flex-start;
-        margin-bottom: 40px;
+        margin-bottom: 35px;
     }
 
     .timeline-item:nth-child(even) {
+        padding: 0 15px;
         padding-left: 50px;
+        justify-content: flex-start;
     }
 
     .timeline-content {
         padding: 20px;
         width: 100%;
+        border-radius: 15px;
     }
 
     .icon-box {
-        left: -28px !important;
+        left: -32px !important;
         right: auto !important;
-        width: 35px;
-        height: 35px;
-        font-size: 0.8rem;
+        width: 38px;
+        height: 38px;
+        font-size: 1rem;
+        top: 30px;
     }
 
     .timeline-content h3 {
         font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 8px;
     }
 
     .timeline-content p {
         font-size: 0.9rem;
+        line-height: 1.4;
     }
 
     /* FLIP CARDS */
     .reasons-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 12px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px 20px;
+    }
+
+    .flip-card {
+        transition: none;
     }
 
     .flip-card {
@@ -969,14 +991,17 @@ h3,
     .flip-card-back {
         padding: 15px;
         border-radius: 12px;
+        font-size: 1rem;
     }
 
     .flip-card-front {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
+        line-height: 1.2;
     }
 
     .flip-card-back {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
+        line-height: 1.3;
     }
 
     /* LOAD MORE BUTTON */
@@ -1097,6 +1122,132 @@ h3,
     .section-title {
         font-size: 1.4rem;
         margin-bottom: 20px;
+    }
+
+    /* COUNTDOWN MOBILE */
+    .card {
+        padding: 20px 15px;
+    }
+
+    .countdown-grid {
+        gap: 5px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .time-unit {
+        min-width: 45px;
+        margin: 5px;
+    }
+
+    .time-unit span {
+        font-size: 1.2rem;
+    }
+
+    .time-unit small {
+        font-size: 0.6rem;
+    }
+
+    .card-footer {
+        font-size: 0.8rem;
+        margin-top: 15px;
+    }
+
+    /* BUTTONS */
+    .btn-premium {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        min-width: 120px;
+    }
+
+    .btn-surprise {
+        padding: 14px 25px;
+        font-size: 0.95rem;
+    }
+
+    /* FLIP CARDS */
+    .reasons-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px 12px;
+    }
+
+    .flip-card {
+        height: 140px;
+        transition: none;
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+        padding: 10px;
+        border-radius: 8px;
+    }
+
+    .flip-card-front {
+        font-size: 0.9rem;
+        line-height: 1.1;
+    }
+
+    .flip-card-back {
+        font-size: 0.75rem;
+        line-height: 1.2;
+    }
+
+    /* INTRO */
+    .fade-in-text {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+        line-height: 1.4;
+    }
+
+    .btn-premium {
+        min-width: 100px;
+    }
+
+    /* FOOTER */
+    .final-phrase {
+        font-size: 1rem;
+        line-height: 1.3;
+    }
+
+    .beating-heart {
+        font-size: 1.5rem;
+    }
+
+    .footer-bottom {
+        font-size: 0.7rem;
+    }
+
+    /* TIMELINE MOBILE */
+    .timeline::before {
+        left: 18px;
+    }
+
+    .timeline-item {
+        padding-left: 55px;
+    }
+
+    .timeline-item:nth-child(even) {
+        padding-left: 55px;
+    }
+
+    .timeline-content {
+        padding: 15px;
+    }
+
+    .icon-box {
+        width: 35px;
+        height: 35px;
+        font-size: 0.85rem;
+        left: -30px !important;
+    }
+
+    .timeline-content h3 {
+        font-size: 1rem;
+    }
+
+    .timeline-content p {
+        font-size: 0.8rem;
     }
 
     .btn-premium {
